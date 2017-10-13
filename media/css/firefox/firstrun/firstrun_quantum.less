@@ -1,0 +1,481 @@
+@import "../../sandstone/lib.less";
+
+@font-face {
+    font-family: 'Fira Sans Light';
+    src: url('/media/fonts/FiraSans-Light.woff2') format('woff2'),
+         url('/media/fonts/FiraSans-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fira Sans Light';
+    src: url('/media/fonts/FiraSans-SemiBold.woff2') format('woff2'),
+         url('/media/fonts/FiraSans-SemiBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+* {
+    font-family: 'Fira Sans Light';
+}
+
+#scene {
+    height: 100vh;
+    width: 100vw;
+}
+
+.background {
+    transform: scale(2);
+}
+
+.cls-1 {
+    fill:#FFFFFF;
+}
+
+.st1 {
+    fill:#0042B4;
+}
+
+.st2 {
+    opacity:0.5;
+    fill:#002899;
+}
+
+.st3 {
+    opacity:0.4;
+    fill:#002079;
+}
+
+.st4 {
+    opacity:0.8;
+    fill:#0042B4;
+}
+
+.st5 {
+    opacity:0.6;
+    fill:#001A6B;
+}
+
+.st6 {
+    opacity:0.6;
+    fill:#0031AA;
+}
+
+.st7 {
+    opacity:0.5;
+    fill:#0042B4;
+}
+
+.st8 {
+    opacity:0.5;
+    fill:#001A87;
+}
+
+.cls-2 {
+    fill: url('#linear-gradient');
+    mix-blend-mode: color;
+    opacity: 0;
+}
+
+#firefox-logo {
+    background: url('/media/img/firefox/firstrun-quantum/firefox_and_wordmark.png');
+    width: 150px;
+    height: 60px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    opacity: 0;
+}
+
+#fxa {
+    border: none;
+    position: relative;
+    width: 420px;
+}
+
+#fxa-iframe-config {
+    background: #fff;
+    display: inline-block;
+    margin-left: 77px;
+    transform: scale(.8);
+    opacity: 0;
+    padding-bottom: 20px;
+}
+
+.fxaccounts-container {
+    bottom: 0;
+    color: #fff;
+    height: 485px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 847px;
+    z-index: 10;
+}
+
+#left-divider {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+    margin-right: 50px;
+    width: 300px;
+
+    #title,
+    p,
+    a {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    p {
+        font-size: 1.1em;
+        line-height: 150%;
+    }
+
+    a {
+        color: #fff;
+        display: block;
+        font-size: .9em;
+    }
+
+    #title {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+}
+
+#skip-button {
+    -moz-appearance: none;
+    background-color: #0996f8;
+    border-radius: 3px;
+    border: 1px solid #0670cc;
+    box-shadow: 0 0 0 0 transparent;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    min-height: 24px;
+    margin: 0 auto;
+    padding: 5px 10px;
+    font-size: 0.9em;
+
+    &:not([disabled]):hover {
+        background-color: #0670cc;
+        border-color: #005bab;
+    }
+}
+
+#skip-button[disabled] {
+    background-color: #ebebeb;
+    border-color: #b1b1b1;
+    color: #6a6a6a;
+    cursor: default;
+    opacity: .5;
+}
+
+.skipbutton-hidden {
+    display: none;
+}
+
+#scene[data-animate=true] {
+
+    .st1 {
+        animation: Wave1 17.26s infinite forwards;
+    }
+
+    .st2 {
+        animation: Wave2_3 11.08s infinite forwards;
+    }
+
+    .st3 {
+        animation: Wave2_3 7.51s infinite forwards;
+    }
+
+    .st4 {
+        animation: Wave4 15.14s infinite forwards;
+    }
+
+    .st5 {
+        animation: Wave5 13.46s infinite forwards;
+    }
+
+    .st6 {
+        animation: Wave6 20.55s infinite forwards;
+    }
+
+    .st7 {
+        animation: Wave7 26.55s infinite forwards;
+    }
+
+    .st8 {
+        animation: Wave8 27.43s infinite forwards;
+    }
+
+    #firefox-logo {
+        transition: opacity 1s 1.8s;
+        opacity: 1;
+    }
+
+    #fxa-iframe-config {
+        transition: opacity 1s 2s, transform 1s 2s;
+        opacity: .9;
+        transform: scale(1);
+    }
+
+    #left-divider {
+
+        #title,
+        p,
+        a {
+            transition: transform .5s, opacity .8s;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        #title {
+            transition-delay: 1.8s;
+        }
+
+        p {
+            transition-delay: 2s;
+        }
+
+        a {
+            transition-delay: 2.2s;
+        }
+    }
+
+    #skip-button {
+        transition: opacity 2s 2.5s;
+        opacity: 1;
+    }
+}
+
+#scene[data-sign-in=true] {
+    #firefox-logo,
+    .fxaccounts-container {
+      transition: opacity .5s;
+      opacity: 0;
+    }
+
+    .cls-2 {
+      transition: opacity 1.6s .8s;
+      opacity: 1;
+    }
+
+    .st1 {
+      animation: Wave1 17.26s infinite forwards, Expand1 1.5s cubic-bezier(.73,.08,.94,.33) .2s forwards;
+    }
+
+    .st2 {
+      animation: Wave2_3 11.08s infinite forwards, Expand2 1.5s cubic-bezier(.73,.08,.94,.33) .2s 1 forwards;
+    }
+
+    .st3 {
+      animation: Wave2_3 7.51s infinite forwards, Expand3 1.5s cubic-bezier(.73,.08,.94,.33) .2s 1 forwards;
+    }
+
+    .st4 {
+      animation: Wave4 15.14s infinite forwards, Expand4 1.5s cubic-bezier(.73,.08,.94,.33) .2s 1 forwards;
+    }
+
+    .st5 {
+      animation: Wave5 13.46s infinite forwards, Expand5 1.5s cubic-bezier(.73,.08,.94,.33) .2s 1 forwards;
+    }
+
+    .st6 {
+      animation: Wave6 20.55s infinite forwards, Expand6 1.5s cubic-bezier(.73,.08,.94,.33) .2s 1 forwards;
+    }
+
+    .st7 {
+      animation: Wave7 26.55s infinite forwards, Expand7 1.5s cubic-bezier(.73,.08,.94,.33) .2s 1 forwards;
+    }
+
+    .st8{
+      animation: Wave8 27.43s infinite forwards, Expand8 1.5s cubic-bezier(.73,.08,.94,.33) .2s 1 forwards;
+    }
+}
+
+@keyframes Expand1 {
+  25% {
+    transform: scale(1.6) skew(-8deg);
+  }
+  35% {
+    transform: scale(2.5) rotate(0deg) skew(-8deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(2.5) rotate(91deg) translate(185px, 625px) skew(-8deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes Expand2 {
+  25% {
+    transform: scale(1.9) rotate(0deg) skew(16deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(1.9) rotate(150deg) translate(149px, 600px) skew(16deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes Expand3 {
+  25% {
+    transform: translate(20px, 0) scale(2.58, 2.4) skew(16deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(2.5) rotate(27deg) translate(-121px, 270px) skew(16deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes Expand4 {
+   25% {
+    transform: scale(2.16, 1.5) skew(-11.7deg);
+  }
+  100% {
+    transform: scale(2.16, 1.5) translate(0, 100px) skew(-11.7deg);
+  }
+}
+
+@keyframes Expand5 {
+  25% {
+    transform: scale(1.8) skew(10deg);
+  }
+  45% {
+    transform: scale(2.6) rotate(0deg) skew(10deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(2.6) rotate(140deg) translate(293px, 450px) skew(10deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes Expand6 {
+  25% {
+    transform: scale(1.8) skew(13deg);
+  }
+  50% {
+    transform: scale(2) rotate(0deg) skew(13deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(2.6) rotate(140deg) translate(-320px, -470px) skew(13deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes Expand7 {
+  25% {
+    transform: scale(1.8) skew(7deg);
+  }
+  50% {
+    transform: scale(2.2) rotate(0deg) skew(7deg);
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(2.2) rotate(100deg) translate(-480px, -740px) skew(7deg);
+    transform-origin: center;
+  }
+}
+
+@keyframes Expand8 {
+    20% {
+      transform: scale(2.2, 1.6) skew(-11.7deg);
+    }
+    100% {
+      transform: translate(178px, -669px) scale(2.5) skew(-11.7deg) rotate(30deg);
+      transform-origin: center;
+    }
+  }
+
+@keyframes Wave1 {
+  35% {
+    transform: scale(1.82) skew(-15deg);
+  }
+  65% {
+    transform: scale(2.02, 1.54) skew(-8deg);
+  }
+  100% {
+    transform: scale(2) skew(0);
+  }
+}
+
+@keyframes Wave2_3 {
+  35% {
+    transform: scale(2.12, 1.68) skew(24deg);
+  }
+  65% {
+    transform: scale(2.02, 2.1) skew(8deg);
+  }
+  100% {
+    transform: scale(2) skew(0);
+  }
+}
+
+@keyframes Wave4 {
+  50% {
+    transform: scale(2.46, 1.56) skew(-35deg);
+  }
+  100% {
+    transform: scale(2) skew(0);
+  }
+}
+
+@keyframes Wave5 {
+  50% {
+    transform: scale(1.65, 2) skew(28deg);
+  }
+  100% {
+    transform: scale(2) skew(0);
+  }
+}
+
+@keyframes Wave6 {
+  40% {
+    transform: scale(2.3, 1.81) skew(41deg);
+  }
+  75% {
+    transform: scale(2.14, 2.1) skew(-15deg);
+  }
+  100% {
+    transform: scale(2) skew(0);
+  }
+}
+
+@keyframes Wave7 {
+  40% {
+    transform: scale(2.28) skew(28deg);
+  }
+  75% {
+    transform: scale(2.28, 1.86) skew(-26deg);
+  }
+  100% {
+    transform: scale(2) skew(0);
+  }
+}
+
+@keyframes Wave8 {
+  50% {
+    transform: scale(1.65, 2) skew(28deg);
+  }
+  100% {
+    transform: scale(2) skew(0);
+  }
+}
+
